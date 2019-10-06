@@ -3,6 +3,18 @@ import matplotlib.pyplot as plt
 import numpy as np
 
 
+cells = [' ', '*']
+
+def draw_grid(x,y,grid):
+
+    ni, nj = grid.shape
+
+    for i in range(ni):
+        for j in range(nj):
+            c = grid[i,j]
+
+
+
 def randomGrid(N, probabilty=0.1):
     """creates a grid of NxN with random cells"""
 
@@ -37,7 +49,7 @@ def life_step(grid, N):
 def main():
 
     # set grid size
-    N = 50
+    N = 20
 
     updateInterval = 50
 
@@ -53,9 +65,7 @@ def main():
     while running:
 
         grid = life_step(grid, N)
-
-        ax.imshow(img, cmap="gray")
-        plt.show()
+        draw_grid(0,0,grid)
 
 if __name__ == '__main__':
     main()
